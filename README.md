@@ -4,6 +4,8 @@
 # idstyle
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/wf-id/idstyle/workflows/R-CMD-check/badge.svg)](https://github.com/wf-id/idstyle/actions)
 <!-- badges: end -->
 
 The goal of idstyle is to …
