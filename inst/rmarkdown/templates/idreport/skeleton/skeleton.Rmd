@@ -1,0 +1,39 @@
+---
+title: "ID Report"
+subtitle: "Running Title"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
+author: "Michael DeWitt"
+date: "Updated: `r format(Sys.Date(), '%d %B %Y')`"
+output: 
+  bookdown::word_document2:
+     number_sections: false
+     toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
+                      fig.height = 10, fig.width = 14)
+library(tidyverse)
+library(data.table)
+library(gtsummary)
+library(cowplot)
+library(flextable)
+library(patchwork)
+gtsummary::theme_gtsummary_journal("jama", set_theme = TRUE)
+hh <- here::here
+theme_set(cowplot::theme_cowplot())
+# Get Tables
+tab_use <- pull_tabs()
+
+# Get Figures
+fig_use <- pull_figures()
+```
+
+
+# Methods
+
+# Results
+
+# Discussion
+
+# References
