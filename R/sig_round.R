@@ -4,6 +4,7 @@
 #'
 #' @param x a numeric to be formatted
 #' @param digitz an integer representing number of digits to maintain
+#' @export
 
 siground <- function(x, digitz = 1){
 
