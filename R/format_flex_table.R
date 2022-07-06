@@ -8,7 +8,7 @@
 
 format_flex_table <- function(ft, width_perc = 100, body_font = 10){
 
-  stopifnot(class(ft)!="flextable")
+  stopifnot(class(ft)=="flextable")
   stopifnot(width_perc < 101 && width_perc > 0)
   stopifnot(body_font>2 && body_font < 100)
 

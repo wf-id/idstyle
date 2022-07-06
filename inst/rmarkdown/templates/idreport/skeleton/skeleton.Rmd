@@ -19,11 +19,12 @@ library(gtsummary)
 library(cowplot)
 library(flextable)
 library(patchwork)
+library(idstyle)
 gtsummary::theme_gtsummary_journal("jama", set_theme = TRUE)
 hh <- here::here
 theme_set(cowplot::theme_cowplot())
 # Get Tables
-tab_use <- pull_tabs()
+tab_use <- pull_tables()
 
 # Get Figures
 fig_use <- pull_figures()
