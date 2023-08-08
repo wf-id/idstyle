@@ -1,0 +1,12 @@
+Binding: make_package
+Title: ID R Package and Shiny Templates
+Subtitle: Typical ID Package Template with shiny application option
+Icon: favicon-black.png
+OpenFiles: README.*md, NEWS.md, inst/shinyapp/*.R, R/run_app.R
+
+
+Parameter: shiny
+Widget: CheckboxInput
+Label: Include a shiny application?
+Default: Off
+Position: right

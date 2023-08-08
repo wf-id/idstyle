@@ -13,3 +13,33 @@ wake_secondary <- c("#FED100",
                     "#0088CE",
                     "#CA005D",
                     "#58A618")
+
+#' Wake Forest Atrium Full Color Guide
+#' @export
+#'
+wake_all_colors <- list(
+  primary = '#8C6D2C', #web gold
+  gold = '#8C6D2C',
+  primarydark = '#624d17',
+  darkgold = '#624d17',
+
+  black = '#000000',
+  white = '#FFFFFF',
+  oldgold = '#9E7E38', # old gold
+  goldonblack = '#cc9f2e',
+  #//primary = #a67f31, //old gold?
+
+  ##secondary colors
+  wakegray = '#54565A',
+  wakeyellow = '#FDC314',
+
+  ## accent colors
+  wakegreen = '#6BA539',
+  atriumteal = '#008C95',
+  wakelightgray = '#CFD2D3',
+  wakecoolgray = '#A7A8A9',
+  wakered = '#861F41',
+  wakenavy = '#002B49',
+  atriumlightgray = '#f5f5f5'
+
+  )

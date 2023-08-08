@@ -1,0 +1,10 @@
+Name: Insert IDEAS Text Logo Markdown
+Description: Inserts IDEAS Text Logo in markdown syntax at the curson position.
+Binding: insertLogoTextMDAddin
+Interactive: false
+
+
+Name: Insert IDEAS Text Logo HTML
+Description: Inserts IDEAS Text Logo in HTML syntax at the curson position.
+Binding: insertLogoTextHTMLAddin
+Interactive: false

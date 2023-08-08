@@ -1,0 +1,53 @@
+% load packages
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+%% Set page size with a wider right margin
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm, bottom=20mm, right=50mm}
+
+
+%% Let's define some colours
+\definecolor{light}{HTML}{f5f5f5}
+\definecolor{highlight}{HTML}{8C6D2C}
+\definecolor{dark}{HTML}{000000}
+
+%% Let's add the border on the right hand side and the logo in the top right corner
+\AddToShipoutPicture{%
+    % Right bar
+    \AtPageLowerLeft{%
+        \put(\LenToUnit{\dimexpr\paperwidth-3cm},0){%
+            \color{light}\rule{3cm}{\LenToUnit\paperheight}%
+          }%
+     }%
+    % Logo
+    \AtPageLowerLeft{%
+        \put(\LenToUnit{\dimexpr\paperwidth-2.25cm},27.2cm){%
+            \color{light}\includegraphics[width=1.5cm]{_extensions/idreport/assets/favicon-black.png}
+          }%
+     }%
+}
+
+%% style the chapter/section fonts
+\chapterfont{\color{dark}\Large\selectfont}
+\sectionfont{\color{dark}\Large\selectfont}
+\subsectionfont{\color{dark}\large\selectfont}
+\titleformat{\subsection}
+  {\sffamily\large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+% left align title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  {\sffamily\LARGE\textbf{\@title}} \vspace{0.2cm} \newline
+  {\Large {\@subtitle}} \newline\newline
+  \@author \newline
+  \textit{\@date}
+\end{flushleft}\egroup
+}
+\makeatother
+

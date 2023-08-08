@@ -1,4 +1,4 @@
-name: Infectious Diseases Report
+name: Infectious Diseases Word Document Report
 description: >
- Template for creating a report
+ Template for creating a docx report
 create_dir: false

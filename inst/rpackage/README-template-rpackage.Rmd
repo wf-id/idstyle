@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
+<!-- Please keep this updated! You'll need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. -->
+
+```{r}
+#| include = FALSE
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+# {{project_name}}
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of R package `{{project_name}}` is to ...
+
+## Installation
+
+You can install the development version of `{{project_name}}` like so:
+
+``` r
+devtools::install_github('wf-id/{{project_name}}')
+
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library({{project_name}})
+## basic example code
+```
+

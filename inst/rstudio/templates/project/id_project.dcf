@@ -1,0 +1,23 @@
+Binding: make_project
+Title: ID Research Project Template
+Subtitle: Typical ID Research Project Template with varying output options
+Icon: favicon-black.png
+OpenFiles: README.*md, *index*, *_quarto.yml, build.R, report/report.qmd
+
+Parameter: report
+Widget: CheckboxInput
+Label: Quarto Report (single html, docx, and/or pdf output)
+Default: On
+Position:left
+
+Parameter: website
+Widget: CheckboxInput
+Label: Quarto Website
+Default: Off
+Position:left
+
+Parameter: book
+Widget: CheckboxInput
+Label: Quarto Book
+Default: Off
+Position:left

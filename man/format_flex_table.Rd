@@ -7,7 +7,7 @@
 format_flex_table(ft, width_perc = 100, body_font = 10)
 }
 \arguments{
-\item{ft}{a flextable object, the flextable to be formatted.}
+\item{ft}{a flextable object, or an object that can be coerced into a flextable object, to be formatted.}
 
 \item{width_perc}{a numeric between 1 and 100 indicating the percent width
 to expand to fill with a default of \code{100}.}

@@ -1,5 +1,5 @@
 #' Format a Flextable
-#' @param ft a flextable object, the flextable to be formatted.
+#' @param ft a flextable object, or an object that can be coerced into a flextable object, to be formatted.
 #' @param width_perc a numeric between 1 and 100 indicating the percent width
 #'    to expand to fill with a default of \code{100}.
 #' @param body_font a numeric, the font of the table body with default of \code{10}.
@@ -8,7 +8,8 @@
 
 format_flex_table <- function(ft, width_perc = 100, body_font = 10){
 
-  stopifnot(class(ft)=="flextable")
+  # stopifnot(class(ft)=="flextable")
+  if(!inherits(ft,"flextable")) ft <- flextable::as_flextable(ft, show_coltype = FALSE)
   stopifnot(width_perc < 101 && width_perc > 0)
   stopifnot(body_font>2 && body_font < 100)
 
