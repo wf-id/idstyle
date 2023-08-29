@@ -43,3 +43,35 @@ wake_all_colors <- list(
   atriumlightgray = '#f5f5f5'
 
   )
+
+
+
+#' Wake Forest Gold
+#' @export
+#'
+wake_gold <- wake_all_colors$gold
+
+#' Wake Forest Old Gold
+#' @export
+#'
+wake_oldgold <- wake_all_colors$oldgold
+
+#' Wake Forest Dark Gold
+#' @export
+#'
+wake_darkgold <- wake_all_colors$darkgold
+
+#' Wake Forest Gray
+#' @export
+#'
+wake_gray <- wake_all_colors$wakegray
+
+#' Wake Forest Yellow
+#' @export
+#'
+wake_yellow <- wake_all_colors$wakeyellow
+
+#' Atrium Teal
+#' @export
+#'
+atrium_teal <- wake_all_colors$atriumteal

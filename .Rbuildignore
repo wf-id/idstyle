@@ -8,3 +8,4 @@
 ^pkgdown$
 inst/hugo
 test/
+^data-raw$

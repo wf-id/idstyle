@@ -6,9 +6,6 @@
 #' @param font_scale default `0.85`, a scalar multiplier to apply to the base font size. For example, a value of 1.5 scales font sizes to 150% and a value of 0.8 scales to 80%. Must be a positive number.
 #'
 #' @export
-#' @importFrom bslib bs_theme
-#' @importFrom bslib bs_add_variables
-#' @importFrom bslib bs_add_rules
 #'
 id_bs_theme <- function(font_scale = 0.85){
 
@@ -27,8 +24,8 @@ id_bs_theme <- function(font_scale = 0.85){
                   base_font = wake_font_collections$sans_serif,
                   heading_font = wake_font_collections$serif,
                   font_scale = font_scale,
-                  spacer = ".7rem") %>%
-    bslib::bs_add_variables('headings-font-weight'= '700') %>%
+                  spacer = ".7rem") |>
+    bslib::bs_add_variables('headings-font-weight'= '700') |>
     bslib::bs_add_rules(paste0('.bslib-value-box .value-box-area * {font-family: ',
                         toString(wake_font_collections$sans_serif$families),
                         '!important;}'))

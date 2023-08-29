@@ -1,6 +1,6 @@
 Package: idstyle
 Title: Providing Templates, Branding, and Style Tools for ID Research Presentation
-Version: 0.0.1.9000
+Version: 0.0.2
 Authors@R: 
     c(person("Michael", "DeWitt", , "medewitt@wakehealth.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8940-1967")),
@@ -23,7 +23,6 @@ Imports:
     usethis,
     cli,
     bslib,
-    magrittr,
     idtools
 Remotes:
     wf-id/idtools

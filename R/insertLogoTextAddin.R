@@ -2,7 +2,6 @@
 #'
 #' Call this function as an addin to insert the IDEAS text logo (markdown syntax) at the cursor position.
 #'
-#' @importFrom rstudioapi insertText
 #'
 #' @export
 insertLogoTextMDAddin <- function() {
@@ -14,7 +13,6 @@ insertLogoTextMDAddin <- function() {
 #'
 #' Call this function as an addin to insert the IDEAS text logo (HTML syntax) at the cursor position.
 #'
-#' @importFrom rstudioapi insertText
 #'
 #' @export
 insertLogoTextHTMLAddin <- function() {

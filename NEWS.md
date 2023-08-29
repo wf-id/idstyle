@@ -1,4 +1,30 @@
-# idstyle 0.0.1.0009
+# Changes in version 0.0.2
+
+## New Features
+
+1. Short hand text available for common colors/fonts: 
+
+  - colors
+    - `wake_gold`
+    - `wake_darkgold`
+    - `wake_oldgold`
+    - `wake_gray`
+    - `wake_yellow`
+    - `atrium_teal`
+  - fonts
+    - `wake_serif`
+    - `wake_sanserif`
+    
+2. Easier css access with `get_css_location()`: formally the css was buried in the quarto idreport extension, and only as non-compiled `.scss`. This file is now compiled and saved to `inst/assets/main.css` and the new function will return the file system location.
+
+## Clean up
+
+1. removed unnecessary importFrom for packages that are already imported
+2. removed template output files from testing
+3. removed magrittr pipe
+4. updates to main `.scss` after additional website testing
+
+# Changes in version 0.0.1.0009
 
 Lots of updates in this dev version for review:
 

@@ -4,9 +4,6 @@
 #'
 #' @param dir directory with figures
 #'
-#' @importFrom fs dir_ls
-#' @importFrom purrr map
-#' @importFrom tools file_path_sans_ext
 #'
 #' @return a list of plot items
 #'

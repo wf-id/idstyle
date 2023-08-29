@@ -12,6 +12,9 @@
 /*-- scss:defaults --*/
 //primary colors
 $primary: #8C6D2C; //web gold
+$primary75: rgba(140, 109, 44,0.75);
+$primary50: rgba(140, 109, 44,0.50);
+$primary25: rgba(140, 109, 44,0.25);
 $primarydark: #624d17;
 $black: #000000;
 $white: #FFFFFF;
@@ -42,9 +45,10 @@ $toc-color: $primary;
 $footer-bg: $black;
 $footer-fg: $white;
 $hr-color: $primary;
-$border-color: $primary;
+//$border-color: $primary;
 
-$nav-tabs-border-color: $border-color;
+$gray-300: #dee2e6; //bootstrap default
+$nav-tabs-border-color: $gray-300;
 
 //callouts
 $callout-color-note: $atriumteal;
@@ -73,8 +77,8 @@ $nav-pills-link-active-bg: $black;
 $nav-pills-border-radius: 0;
 
 //navbar
-$navbar-brand-font-size: 1.1rem;
-$nav-link-font-size: 0.9rem;
+//$navbar-brand-font-size: 1.1rem;
+//$nav-link-font-size: 0.9rem;
 $navbar-dark-color: $white;
 $navbar-dark-hover-color: $white;
 //dropdowns
@@ -160,6 +164,11 @@ font-family: $font-family-sans-serif;
 font-weight: 400;
 }
 
+h2 {
+	border-bottom-color: $primary25;
+
+}
+
 //heading default
 .quarto-title .subtitle{
   font-weight: 400;
@@ -213,7 +222,7 @@ span.navbar-title {
     padding: 20px;
     background-color: $footer-bg;
     color: $footer-fg;
-    font-size: 0.65em;
+    font-size: 0.75em;
     font-weight: 200;
     z-index: 999;
     border-top: 1px solid $primary;
@@ -237,6 +246,8 @@ span.navbar-title {
     font-size: 1em;
     font-weight: 200;
     z-index: 999;
+    top:0;
+    position:sticky;
 }
 
 .basic-header a{

@@ -11,13 +11,6 @@
 #' a user selects New project... > New Directory > ID R Package and Shiny Templates
 #' within the RStudio IDE. See \code{./rstudio/templates/project/}.
 #'
-#' @importFrom usethis create_package
-#' @importFrom here here
-#' @importFrom cli cli_alert_success
-#' @importFrom cli cli_alert_danger
-#' @importFrom cli cli_alert_warning
-#' @importFrom idtools generate_template
-#'
 #' @return Returns nothing.  See description above.
 #'
 #' @export

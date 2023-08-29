@@ -1,8 +1,6 @@
 #' Wake Forest Atrium Font Collections
 #' @description
 #' contains a list of font collections via \code{bslib::font_collection()}
-#' @importFrom bslib font_collection
-#' @importFrom bslib font_google
 #'
 #' @export
 wake_font_collections <- list(sans_serif = bslib::font_collection(
@@ -20,3 +18,17 @@ wake_font_collections <- list(sans_serif = bslib::font_collection(
 #' @export
 wake_google_fonts <- list(sans_serif = 'Nunito Sans',
                           serif = 'Cormorant')
+
+#' Wake Forest Serif Font
+#' @description
+#' a character string of the serif font families, comma delimited
+#'
+#' @export
+wake_serif <- wake_font_collections$serif$families
+
+#' Wake Forest Serif Font
+#' @description
+#' a character string of the sans serif font families, comma delimited
+#'
+#' @export
+wake_sansserif <- wake_font_collections$sans_serif$families
