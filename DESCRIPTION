@@ -1,6 +1,6 @@
 Package: idstyle
 Title: Providing Templates, Branding, and Style Tools for ID Research Presentation
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     c(person("Michael", "DeWitt", , "medewitt@wakehealth.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8940-1967")),
@@ -31,3 +31,6 @@ Enhances:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+LazyData: true

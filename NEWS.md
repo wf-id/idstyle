@@ -1,3 +1,7 @@
+# Changes in version 0.0.3
+
+package data added: `logoTextHTML` and `logoTextMD`, character strings containing the IDEAS logo in HTML & MD formats for use outside of just the addins
+
 # Changes in version 0.0.2
 
 ## New Features

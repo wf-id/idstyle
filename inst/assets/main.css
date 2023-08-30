@@ -165,3 +165,7 @@ span.navbar-title {
 .basic-header a {
   color: #cc9f2e;
 }
+
+.modal-content {
+  font-family: "Nunito Sans", Arial, sans-serif;
+}
