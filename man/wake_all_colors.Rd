@@ -5,7 +5,7 @@
 \alias{wake_all_colors}
 \title{Wake Forest Atrium Full Color Guide}
 \format{
-An object of class \code{list} of length 17.
+An object of class \code{list} of length 28.
 }
 \usage{
 wake_all_colors

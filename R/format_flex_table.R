@@ -1,17 +1,29 @@
 #' Format a Flextable
-#' @param ft a flextable object, or an object that can be coerced into a flextable object, to be formatted.
+#' @param ft a flextable object, or an object that can be coerced into a flextable
+#'     object, to be formatted.
 #' @param width_perc a numeric between 1 and 100 indicating the percent width
-#'    to expand to fill with a default of \code{100}.
+#'    to expand to fill with a default of \code{80}. \code{NULL} for automatic
+#'    flextable sizing.
 #' @param body_font a numeric, the font of the table body with default of \code{10}.
+#' @param header_font a numeric, the font of the table header with default of \code{10}.
+#' @param color a string, default 'none' returns a black and white table,
+#'     for 'wake' and 'atrium' a gray striped table with a gold or teal
+#'     background header
 #' @returns a formatted flextable
 #' @export
 
-format_flex_table <- function(ft, width_perc = 100, body_font = 10){
+format_flex_table <- function(ft, width_perc = 80,
+                              body_font = 10, header_font = 10,
+                              color = c('none', 'wake', 'atrium')){
+
+  color <- match.arg(color)
 
   # stopifnot(class(ft)=="flextable")
   if(!inherits(ft,"flextable")) ft <- flextable::as_flextable(ft, show_coltype = FALSE)
-  stopifnot(width_perc < 101 && width_perc > 0)
+
+  stopifnot((width_perc < 101 && width_perc > 0) | is.null(width_perc))
   stopifnot(body_font>2 && body_font < 100)
+
 
   if(!is.null(width_perc)){
     if(!is.numeric(width_perc)) {
@@ -21,11 +33,20 @@ format_flex_table <- function(ft, width_perc = 100, body_font = 10){
       stop('width_perc must be between 1 and 100')
     }
     ft <- flextable::width(ft, width = ((width_perc/100)*7)/length(ft$col_keys))
+  }
 
     ft <- flextable::fontsize(ft, part = "body", size = body_font)
 
-    return(ft)
+    if(color=='wake'){
+      ft <- flextable::theme_zebra(ft, odd_header = wake_gold, even_header = wake_darkgold) |>
+      flextable::color(color = 'white', part = 'header')
+    }
 
-  }
+    if(color=='atrium'){
+      ft <- flextable::theme_zebra(ft, odd_header = atrium_teal, even_header = atrium_tealshadow) |>
+        flextable::color(color = 'white', part = 'header')
+    }
+
+    return(ft)
 
 }

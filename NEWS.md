@@ -1,3 +1,49 @@
+# Changes in version 0.0.4
+
+## ggplot2 stuff
+
+A lot of update for ggplot2 themes, palettes, and geom defaults.
+
+### Set defaults
+ - `set_theme_wake()` (the package default, ran at package load)
+ - `set_theme_atrium()`
+ - `set_theme_gg()` for ggplot2 typical defaults
+
+### ggplot2 themes
+ - `theme_wake()` & `theme_wake_facet()`
+ - `theme_atrium()` & `theme_atrium_facet()`
+ - `theme_gg()`
+ 
+### ggplot2 scales (and how to set them)
+ - `scale_distrete_wake()` & `scale_continuous_wake()`
+ - `scale_distrete_atrium()` & `scale_continuous_atrium()`
+ - `scale_distrete_wake_atrium()` & `scale_continuous_wake_atrium()`
+ - `palette_set_wake()`
+ - `palette_set_atrium()`
+ - `palette_set_gg()`
+ 
+## More colors
+
+Atrium colors added to `wake_all_colors` and some shorthand:
+
+ - `atrium_gray`
+ - `atrium_darkgray`
+ - `atrium_tealhighlight`
+ - `atrium_tealshadow`
+ - `bridge_yellowgreen`
+
+## fontawesome
+
+ - fonts added to `/inst`
+ - function to register for use: `register_font_awesome()`
+ - `geom_fontawesome()` for ggplot2 use
+
+ 
+## `useWakeCss()` function
+
+Moved from idgeo since css can be applied to any htmlwidget (and not just maps).
+
+
 # Changes in version 0.0.3
 
 package data added: `logoTextHTML` and `logoTextMD`, character strings containing the IDEAS logo in HTML & MD formats for use outside of just the addins

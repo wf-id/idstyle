@@ -1,6 +1,6 @@
 ---
-title: This is My Title
-subtitle: This is My Subtitle
+title: Title
+subtitle: Subtitle
 author: First Last
 date: last-modified
 date-format: "[Updated:] D MMM, YYYY"
@@ -12,8 +12,13 @@ format:
 
 
 ```{r setup, include=FALSE}
-# knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
-#                       fig.height = 10, fig.width = 14)
+# knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+
+#TODO: add examples from font-play (themes, palettes, fontawesome) to README
+#TODO: update NEWS, version bump
+
+
 library(tidyverse)
 library(data.table)
 library(gtsummary)
@@ -21,10 +26,12 @@ library(cowplot)
 library(flextable)
 library(patchwork)
 library(idstyle)
+library(idtools)
+library(showtext)
 
-gtsummary::theme_gtsummary_journal("jama", set_theme = TRUE)
-hh <- here::here
-theme_set(cowplot::theme_cowplot())
+knitr::opts_chunk$set(fig.width=6, fig.height=3.5, out.width = '100%',
+                      fig.showtext = TRUE)
+
 # Get Tables
 # tab_use <- pull_tables()
 
@@ -40,28 +47,111 @@ theme_set(cowplot::theme_cowplot())
 ## Results 
 
 
-###  Default Print
-
-```{r}
-head(mtcars) #default print method
-```
-
-### ID flextable
-
-```{r}
-
-head(mtcars) |> format_flex_table() #idstyle flextable
-```
-
-
-
-
-
-
 ## Discussion
-
 
 
 ## References
 
-[a link](https://www.google.com)
+
+
+### Tables
+
+Flextable formatting:
+
+ - Black & white (default)
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(idstyle))
+head(mtcars) |> format_flex_table() 
+```
+
+ - "wake" color
+ 
+```{r}
+head(mtcars) |> format_flex_table(color = 'wake') 
+```
+
+### Plots
+
+
+ - Points with wake gold default
+ 
+```{r}
+ggplot(mtcars, aes(x = mpg, y = hp)) +
+  geom_point(aes(color = carb))
+```
+
+ - Wake color palette for factors
+
+```{r}
+ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
+```
+
+ - Label formatting
+ 
+```{r}
+gg2 <- mtcars |> ggplot(aes(x = mpg, y = hp, color = cut(mtcars$hp,6))) + #discrete scale
+  geom_point() + labs(title = 'This is a title for my graph',
+                      subtitle = 'This is a subtitle for my graph',
+                      caption = 'This is a caption for my graph',
+                      color = 'HP')
+gg2
+```
+
+ - Grids
+ 
+```{r}
+gg2 + theme_wake(grid = 'both') +
+  labs(title = 'Now with grids!')
+```
+
+ - Facets
+
+```{r}
+gg2 + facet_wrap(~gear) + theme_wake_facet(grid = 'y') +
+  labs(title = 'Some facets! And y grids only')
+
+```
+
+ - Interactive
+
+```{r eval=knitr::is_html_output()}
+
+plotly::ggplotly(gg2)
+
+```
+
+
+
+ - Theme Updating (ggplot2 default)
+
+
+```{r}
+
+theme_set_gg()
+ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
+
+```
+
+ - Theme Updating (Atrium default)
+
+```{r}
+
+theme_set_atrium()
+ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
+
+theme_set_wake() #and back to wake for future graphics
+
+```
+ 
+ - Font Awesome
+ 
+```{r}
+
+mtcars |> ggplot(aes(x = mpg, y = hp)) +
+  geom_fontawesome('head-side-virus', size = 10) +
+  labs(title = 'Using font awesome icons')
+```
+
+
