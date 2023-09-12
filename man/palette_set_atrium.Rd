@@ -7,8 +7,8 @@
 palette_set_atrium(
   discrete.colour = scale_discrete_atrium,
   discrete.fill = scale_discrete_atrium,
-  continuous.color = scale_continuous_atrium,
-  continuous.fill = scale_continuous_atrium
+  continuous.color = scale_color_continuous_atrium,
+  continuous.fill = scale_fill_continuous_atrium
 )
 }
 \arguments{
@@ -16,9 +16,9 @@ palette_set_atrium(
 
 \item{discrete.fill}{default \code{\link[idstyle]{scale_discrete_atrium}}, sets option ggplot2.discrete.fill}
 
-\item{continuous.color}{default \code{\link[idstyle]{scale_continuous_atrium}}, sets option ggplot2.continuous.colour}
+\item{continuous.color}{default \code{\link[idstyle]{scale_color_continuous_atrium}}, sets option ggplot2.continuous.colour}
 
-\item{continuous.fill}{default \code{\link[idstyle]{scale_continuous_atrium}}, sets option ggplot2.continuous.fill}
+\item{continuous.fill}{default \code{\link[idstyle]{scale_fill_continuous_atrium}}, sets option ggplot2.continuous.fill}
 }
 \description{
 The default ggplot2 color/fill scale options for Atrium ID.

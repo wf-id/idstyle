@@ -7,8 +7,8 @@
 palette_set_wake(
   discrete.colour = scale_discrete_wake,
   discrete.fill = scale_discrete_wake,
-  continuous.color = scale_continuous_wake,
-  continuous.fill = scale_continuous_wake
+  continuous.color = scale_color_continuous_wake,
+  continuous.fill = scale_fill_continuous_wake
 )
 }
 \arguments{
@@ -16,9 +16,9 @@ palette_set_wake(
 
 \item{discrete.fill}{default \code{\link[idstyle]{scale_discrete_wake}}, sets option ggplot2.discrete.fill}
 
-\item{continuous.color}{default \code{\link[idstyle]{scale_continuous_wake}}, sets option ggplot2.continuous.colour}
+\item{continuous.color}{default \code{\link[idstyle]{scale_color_continuous_wake}}, sets option ggplot2.continuous.colour}
 
-\item{continuous.fill}{default \code{\link[idstyle]{scale_continuous_wake}}, sets option ggplot2.continuous.fill}
+\item{continuous.fill}{default \code{\link[idstyle]{scale_fill_continuous_wake}}, sets option ggplot2.continuous.fill}
 }
 \description{
 The default ggplot2 color/fill scale options for Wake ID.

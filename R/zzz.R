@@ -11,7 +11,7 @@
 
 
   # set ggplot2 theme & palettes
-  theme_set_wake()
+  theme_set_id()
 
   showtext::showtext_auto()
 
@@ -40,7 +40,7 @@
                ' To revert to gtsummary default theme, run `gtsummary::reset_gtsummary_theme()`',
 
                '\n\n', chk,
-               ' ggplot2 theme `theme_wake()` set & default color scales updated to a wake color palette',
+               ' ggplot2 theme `theme_id()` set & default color scales updated to a colorblind safe palette',
                '\n', info,
                ' To revert to ggplot default theme & color scales, run `theme_set_gg()`',
                '\n', info,

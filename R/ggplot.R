@@ -1,3 +1,35 @@
+#' ID ggplot2 theme
+#' @description
+#' The default ggplot2 theme for ID Research
+#'
+#' @param grid string, which gridlines to show (x, y, none, both) default 'none'
+#' @param base_size default \code{11}
+#' @param base_family default \code{idstyle::wake_google_fonts$sans_serif}
+#' @param base_line_size default \code{base_size/22}
+#' @param base_rect_size default \code{base_size/22}
+#' @param ... other parameters passed to \code{\link[idstyle]{theme_wake_elements}} or
+#'      \code{\link[ggplot2]{theme}()}
+#'
+#' @export
+#'
+theme_id<- function(grid = 'none',
+                       base_size = 11,
+                       base_family = wake_google_fonts$sans_serif,
+                       base_line_size = base_size/22,
+                       base_rect_size = base_size/22,
+                       ...){
+
+  fix_grid(
+    ggplot2::theme_minimal(base_size = base_size,
+                           base_family = base_family,
+                           base_line_size = base_line_size,
+                           base_rect_size = base_rect_size),
+    grid = grid) +
+    theme_wake_elements(...)
+
+}
+
+
 #' Wake ID ggplot2 theme
 #' @description
 #' The default ggplot2 theme for Wake ID Research
@@ -107,6 +139,38 @@ theme_wake_facet <- function(grid = 'none',
                     base_line_size = base_line_size,
                     base_rect_size = base_rect_size),
   grid = grid, facet = TRUE) +
+    theme_wake_elements(...)
+
+}
+
+
+
+#' ID ggplot2 theme for faceted plots
+#' @description
+#' The ggplot2 theme for ID Research for faceted plots
+#'
+#' @param grid string, which gridlines to show (x, y, none, both) default 'none'
+#' @param base_size default \code{11}
+#' @param base_family default \code{idstyle::wake_google_fonts$sans_serif}
+#' @param base_line_size default \code{base_size/22}
+#' @param base_rect_size default \code{base_size/22}
+#' @param ... other theme options passed to \code{\link[idstyle]{theme_wake_elements}} or
+#'      \code{\link[ggplot2]{theme}()}
+#'
+#' @export
+#'
+theme_id_facet <- function(grid = 'none',
+                             base_size = 11,
+                             base_family = wake_google_fonts$sans_serif,
+                             base_line_size = base_size/22,
+                             base_rect_size = base_size/22, ...){
+
+  fix_grid(
+    ggplot2::theme_bw(base_size = base_size,
+                      base_family = base_family,
+                      base_line_size = base_line_size,
+                      base_rect_size = base_rect_size),
+    grid = grid, facet = TRUE) +
     theme_wake_elements(...)
 
 }
@@ -333,6 +397,8 @@ theme_atrium_elements <- function(title_color = atrium_teal,
 
 }
 
+
+
 #' Reset palettes to ggplot2 defaults
 #' @description
 #' The default ggplot2 color/fill scale options
@@ -358,21 +424,45 @@ palette_set_gg <- function(discrete.colour = NULL,
 }
 
 
+
+#' Set ggplot2 palettes to ID defaults
+#' @description
+#' The default ggplot2 color/fill scale options for ID.
+#'
+#' @param discrete.colour default \code{\link[idstyle]{scale_discrete_id}}, sets option ggplot2.discrete.colour
+#' @param discrete.fill default \code{\link[idstyle]{scale_discrete_id}}, sets option ggplot2.discrete.fill
+#' @param continuous.color default \code{\link[idstyle]{scale_color_continuous_id}}, sets option ggplot2.continuous.colour
+#' @param continuous.fill default \code{\link[idstyle]{scale_fill_continuous_id}}, sets option ggplot2.continuous.fill
+#'
+#' @export
+#'
+palette_set_id <- function(discrete.colour = scale_discrete_id,
+                             discrete.fill = scale_discrete_id,
+                             continuous.color = scale_color_continuous_id,
+                             continuous.fill = scale_fill_continuous_id){
+
+
+  palette_set_gg(discrete.colour = discrete.colour,
+                 discrete.fill = discrete.fill,
+                 continuous.color = continuous.color,
+                 continuous.fill = continuous.fill)
+}
+
 #' Set ggplot2 palettes to Wake defaults
 #' @description
 #' The default ggplot2 color/fill scale options for Wake ID.
 #'
 #' @param discrete.colour default \code{\link[idstyle]{scale_discrete_wake}}, sets option ggplot2.discrete.colour
 #' @param discrete.fill default \code{\link[idstyle]{scale_discrete_wake}}, sets option ggplot2.discrete.fill
-#' @param continuous.color default \code{\link[idstyle]{scale_continuous_wake}}, sets option ggplot2.continuous.colour
-#' @param continuous.fill default \code{\link[idstyle]{scale_continuous_wake}}, sets option ggplot2.continuous.fill
+#' @param continuous.color default \code{\link[idstyle]{scale_color_continuous_wake}}, sets option ggplot2.continuous.colour
+#' @param continuous.fill default \code{\link[idstyle]{scale_fill_continuous_wake}}, sets option ggplot2.continuous.fill
 #'
 #' @export
 #'
 palette_set_wake <- function(discrete.colour = scale_discrete_wake,
                              discrete.fill = scale_discrete_wake,
-                             continuous.color = scale_continuous_wake,
-                             continuous.fill = scale_continuous_wake){
+                             continuous.color = scale_color_continuous_wake,
+                             continuous.fill = scale_fill_continuous_wake){
 
 
   palette_set_gg(discrete.colour = discrete.colour,
@@ -388,15 +478,15 @@ palette_set_wake <- function(discrete.colour = scale_discrete_wake,
 #'
 #' @param discrete.colour default \code{\link[idstyle]{scale_discrete_atrium}}, sets option ggplot2.discrete.colour
 #' @param discrete.fill default \code{\link[idstyle]{scale_discrete_atrium}}, sets option ggplot2.discrete.fill
-#' @param continuous.color default \code{\link[idstyle]{scale_continuous_atrium}}, sets option ggplot2.continuous.colour
-#' @param continuous.fill default \code{\link[idstyle]{scale_continuous_atrium}}, sets option ggplot2.continuous.fill
+#' @param continuous.color default \code{\link[idstyle]{scale_color_continuous_atrium}}, sets option ggplot2.continuous.colour
+#' @param continuous.fill default \code{\link[idstyle]{scale_fill_continuous_atrium}}, sets option ggplot2.continuous.fill
 #'
 #' @export
 #'
 palette_set_atrium <- function(discrete.colour = scale_discrete_atrium,
                              discrete.fill = scale_discrete_atrium,
-                             continuous.color = scale_continuous_atrium,
-                             continuous.fill = scale_continuous_atrium){
+                             continuous.color = scale_color_continuous_atrium,
+                             continuous.fill = scale_fill_continuous_atrium){
 
 
   palette_set_gg(discrete.colour = discrete.colour,
@@ -438,6 +528,23 @@ theme_set_gg <- function(discrete.colour = NULL,
 
 }
 
+
+#' Set ID theme & palette for ggplot2
+#' @description
+#' The default ggplot2 theme (\code{link[idstyle]{theme_id}()}) set along
+#'      with default color/fill scale options, \code{link[idstyle]{palette_set_id}()}
+#'
+#' @export
+#'
+theme_set_id <- function(){
+
+  ggplot2::theme_set(theme_id())
+
+  palette_set_id()
+
+  update_geoms_id()
+
+}
 
 #' Set Wake theme & palette for ggplot2
 #' @description
@@ -505,6 +612,22 @@ update_geoms_wake <- function(){
 
   update_geoms_gg(line_color = wake_gold,
                   point_color = wake_gold,
+                  point_size = 2)
+
+}
+
+
+#' Wake ID ggplot2 geom defaults
+#' @description
+#' Update ggplot2 geoms defauls to Wake ID defaults
+#'
+#'
+#' @export
+#'
+update_geoms_id <- function(){
+
+  update_geoms_gg(line_color = 'black',
+                  point_color = 'black',
                   point_size = 2)
 
 }

@@ -54,18 +54,36 @@ head(mtcars) |> format_flex_table(color = 'wake')
 ### Plots
 
 
- - Points with wake gold default
+ - Points with black default
  
 ```{r}
 ggplot(mtcars, aes(x = mpg, y = hp)) +
-  geom_point(aes(color = carb))
+  geom_point()
 ```
 
- - Wake color palette for factors
+ - Points with continuous default
+ 
+```{r}
+ggplot(mtcars, aes(x = mpg, y = hp)) +
+  geom_point(aes(color = gear))
+```
+
+ - ID colorblind safe palette for factors
 
 ```{r}
 ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
 ```
+
+ - ID colorblind safe palette for continuous fill
+ 
+```{r}
+if (requireNamespace("sf", quietly = TRUE)) {
+nc <- sf::st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
+ggplot(nc) +
+  geom_sf(aes(fill = AREA))
+}
+```
+
 
  - Label formatting
  
@@ -88,7 +106,7 @@ gg2 + theme_wake(grid = 'both') +
  - Facets
 
 ```{r}
-gg2 + facet_wrap(~gear) + theme_wake_facet(grid = 'y') +
+gg2 + facet_wrap(~gear) + theme_id_facet(grid = 'y') +
   labs(title = 'Some facets! And y grids only')
 
 ```
@@ -113,6 +131,14 @@ ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
 
 ```
 
+ - Theme Updating (Wake default)
+
+```{r}
+theme_set_wake() 
+ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
+
+```
+
  - Theme Updating (Atrium default)
 
 ```{r}
@@ -120,7 +146,7 @@ ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
 theme_set_atrium()
 ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
 
-theme_set_wake() #and back to wake for future graphics
+theme_set_id() # back to normal default
 
 ```
  

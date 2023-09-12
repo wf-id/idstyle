@@ -1,3 +1,17 @@
+# Changes in version 0.0.6
+
+## New Features
+
+New default ggplot palette that is colorblind friendly. `theme_set_id()` instead of `theme_set_wake()` now sets the defaults:
+
+ - sets `theme_id()` as default theme (use `theme_id_facet()` for facet plots)
+ - sets the default palettes (`scale_discrete_id()`, `scale_color_continuous_id()` and `scale_fill_continuous_id()`) via `palette_set_id()`
+ - sets default geoms with `update_geoms_id()` 
+ 
+## Bug fix
+
+Bug fix on `scale_continuous_xxx()` palettes... broken into `scale_color_continuous_xxx()` and `scale_fill_continuous_xxx()` for color and fill respectively (only color properly supported before).
+
 # Changes in version 0.0.5
 
 `format_flex_table()` changes

@@ -125,7 +125,7 @@ bridge_yellowgreen <- wake_all_colors$yellowgreen
 
 
 
-#' Wake-Atrium Bridge Continuous Scale
+#' Wake-Atrium Bridge Continuous Color Scale
 #' @description
 #' Continuous gradient scales that bridges Wake gold & Atrium teal with yellow-green
 #'
@@ -133,7 +133,7 @@ bridge_yellowgreen <- wake_all_colors$yellowgreen
 #'
 #' @export
 #'
-scale_continuous_wake_atrium <- function(...) {
+scale_color_continuous_wake_atrium <- function(...) {
 
   ggplot2::scale_color_gradientn(...,
                                  colours = c(wake_oldgold,
@@ -142,8 +142,67 @@ scale_continuous_wake_atrium <- function(...) {
                                  )
 }
 
+#' Wake-Atrium Bridge Continuous Fill Scale
+#' @description
+#' Continuous gradient scales that bridges Wake gold & Atrium teal with yellow-green
+#'
+#' @param ... other arguments passed to \code{\link[ggplot2]{scale_color_gradientn}()}
+#'
+#' @export
+#'
+scale_fill_continuous_wake_atrium <- function(...) {
 
-#' Wake Continuous Scale Function
+  ggplot2::scale_fill_gradientn(...,
+                                 colours = c(wake_oldgold,
+                                             bridge_yellowgreen,
+                                             atrium_teal)
+  )
+}
+
+
+#' ID Discrete Scale Function
+#' @export
+#'
+scale_discrete_id <- list(
+
+  unname(grDevices::palette.colors(n = 9, palette = 'okabe'))
+
+)
+
+#' ID Continuous Color Scale Function
+#' @description
+#' Continuous gradient scales using 'mako' viridis palette
+#'
+#' @param option default 'mako', a character string indicating the color map option to use.
+#' @param end The (corrected) hue in \code{⁠[0,1]}⁠ at which the color map ends.
+#'      default \code{0.8} so that the whole color map is visible on a white background.
+#' @param ... other arguments passed to \code{\link[ggplot2]{scale_color_gradientn}()}
+#'
+#' @export
+#'
+scale_color_continuous_id <- function(option = 'mako', end = 0.8, ...) {
+
+  ggplot2::scale_color_viridis_c(option = option, end = end)
+
+}
+
+#' ID Continuous Fill Scale Function
+#' @description
+#' Continuous gradient scales using 'mako' viridis palette
+#'
+#' @param option default 'mako', a character string indicating the color map option to use.
+#' @param ... other arguments passed to \code{\link[ggplot2]{scale_color_gradientn}()}
+#'
+#' @export
+#'
+scale_fill_continuous_id <- function(option = 'mako', ...) {
+
+  ggplot2::scale_fill_viridis_c(option = option)
+
+}
+
+
+#' Wake Continuous Color Scale Function
 #' @description
 #' Continuous gradient scales of black & Wake gold
 #'
@@ -151,11 +210,26 @@ scale_continuous_wake_atrium <- function(...) {
 #'
 #' @export
 #'
-scale_continuous_wake <- function(...) {
+scale_color_continuous_wake <- function(...) {
   ggplot2::scale_color_gradientn(...,
                                  colours = c('black',
                                              wake_yellow)
                                  )
+}
+
+#' Wake Continuous Fill Scale Function
+#' @description
+#' Continuous gradient scales of black & Wake gold
+#'
+#' @param ... other arguments passed to \code{\link[ggplot2]{scale_color_gradientn}()}
+#'
+#' @export
+#'
+scale_fill_continuous_wake <- function(...) {
+  ggplot2::scale_fill_gradientn(...,
+                                 colours = c('black',
+                                             wake_yellow)
+  )
 }
 
 #' Wake Discrete Scale Function
@@ -164,30 +238,23 @@ scale_continuous_wake <- function(...) {
 scale_discrete_wake <- list(
 
   # gold, black, yellow for n <= 3
+  # c(wake_gold, 'black', wake_all_colors$wakeyellow),
 
-  c(wake_gold, 'black', wake_all_colors$wakeyellow),
-
-  #diverging, gray instead of black (can't tell black from navy well) for n > 3, n <= 11
-
-  c(wake_gold,
-    wake_gray,
-    wake_yellow,
-    wake_all_colors$wakegreen,
+  # an attempt at a 1 for 1 match between okabe-ito palette and wake palette for easy back & forth
+  c('black',
+    wake_gold,
     wake_all_colors$waketeal,
-    wake_all_colors$wakered,
+    wake_all_colors$wakegreen,
+    wake_yellow,
     wake_all_colors$wakenavy,
-    wake_all_colors$wakecoolgray,
-    # some extra from Okabe-Ito
-    '#D55E00',
-    '#CC79A7',
-    # black for 11
-    'black'
-  )
+    wake_all_colors$wakered,
+    wake_gray,
+    wake_all_colors$wakecoolgray)
 
 )
 
 
-#' Atrium Continuous Scale Function
+#' Atrium Continuous Color Scale Function
 #' @description
 #' Continuous gradient scales of gray & Atrium teal
 #'
@@ -195,11 +262,27 @@ scale_discrete_wake <- list(
 #'
 #' @export
 #'
-scale_continuous_atrium <- function(...) {
+scale_color_continuous_atrium <- function(...) {
   ggplot2::scale_color_gradientn(...,
                                  colours = c(atrium_gray,
                                              atrium_teal)
                                  )
+}
+
+
+#' Atrium Continuous Fill Scale Function
+#' @description
+#' Continuous gradient scales of gray & Atrium teal
+#'
+#' @param ... other arguments passed to \code{\link[ggplot2]{scale_color_gradientn}()}
+#'
+#' @export
+#'
+scale_fill_continuous_atrium <- function(...) {
+  ggplot2::scale_fill_gradientn(...,
+                                 colours = c(atrium_gray,
+                                             atrium_teal)
+  )
 }
 
 #' Atrium Discrete Scale Function
@@ -209,7 +292,7 @@ scale_discrete_atrium <- list(
 
   c(atrium_teal, 'black', wake_all_colors$atriumdarkgray),
 
-  #diverging, add highlight after teal, n > 3, n <= 11
+  #diverging, add highlight after teal, n > 3, n <= 9
 
   c(atrium_teal,
     atrium_tealhighlight,
@@ -220,10 +303,10 @@ scale_discrete_atrium <- list(
     wake_all_colors$atriumblue,
     wake_all_colors$atriumyellow,
     wake_all_colors$atriumorange,
-    wake_all_colors$atriumred,
-    # some extra from Okabe-Ito
-    '#CC79A7',
-    "#56B4E9"
+    wake_all_colors$atriumred #,
+    # # some extra from Okabe-Ito
+    # '#CC79A7',
+    # "#56B4E9"
 
   )
 
