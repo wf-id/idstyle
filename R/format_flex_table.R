@@ -19,6 +19,7 @@ format_flex_table <- function(ft, width_perc = 80,
   color <- match.arg(color)
 
   # stopifnot(class(ft)=="flextable")
+  if(inherits(ft, 'gtsummary')) ft <- gtsummary::as_flex_table(ft)
   if(!inherits(ft,"flextable")) ft <- flextable::as_flextable(ft, show_coltype = FALSE)
 
   stopifnot((width_perc < 101 && width_perc > 0) | is.null(width_perc))
@@ -35,16 +36,21 @@ format_flex_table <- function(ft, width_perc = 80,
     ft <- flextable::width(ft, width = ((width_perc/100)*7)/length(ft$col_keys))
   }
 
-    ft <- flextable::fontsize(ft, part = "body", size = body_font)
+    ft <- flextable::fontsize(ft, part = "body", size = body_font) |>
+      flextable::fontsize(part = "footer", size = body_font*0.9)
 
     if(color=='wake'){
       ft <- flextable::theme_zebra(ft, odd_header = wake_gold, even_header = wake_darkgold) |>
-      flextable::color(color = 'white', part = 'header')
+      flextable::color(color = 'white', part = 'header') |>
+        flextable::color(color = 'white', part = 'footer') |>
+        flextable::bold(bold = FALSE, part = 'footer')
     }
 
     if(color=='atrium'){
       ft <- flextable::theme_zebra(ft, odd_header = atrium_teal, even_header = atrium_tealshadow) |>
-        flextable::color(color = 'white', part = 'header')
+        flextable::color(color = 'white', part = 'header') |>
+        flextable::color(color = 'white', part = 'footer') |>
+        flextable::bold(bold = FALSE, part = 'footer')
     }
 
     return(ft)

@@ -1,3 +1,11 @@
+# Changes in version 0.0.5
+
+`format_flex_table()` changes
+ 
+ - smaller, non-bold footer text
+ - white footer text in colored tables for readability 
+ - `gtsummary` support
+
 # Changes in version 0.0.4
 
 ## ggplot2 stuff
