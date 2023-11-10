@@ -160,14 +160,6 @@ scale_fill_continuous_wake_atrium <- function(...) {
 }
 
 
-#' ID Discrete Scale Function
-#' @export
-#'
-scale_discrete_id <- list(
-
-  unname(grDevices::palette.colors(n = 9, palette = 'okabe'))
-
-)
 
 #' ID Continuous Color Scale Function
 #' @description
@@ -250,6 +242,18 @@ scale_discrete_wake <- list(
     wake_all_colors$wakered,
     wake_gray,
     wake_all_colors$wakecoolgray)
+
+)
+
+
+#' ID Discrete Scale Function
+#' @export
+#'
+scale_discrete_id <- list(
+
+  #unname(grDevices::palette.colors(n = 9, palette = 'okabe'))
+  #decided on fresher colors than okabe that are also easier to see on white
+  c(unlist(scale_discrete_wake)[3:8], '#D55E00','#56B4E9', 'black')
 
 )
 

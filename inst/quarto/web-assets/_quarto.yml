@@ -1,0 +1,38 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!README.md"
+    - "!LICENSE.md"
+    - "!TODO.md"
+
+description-meta: "Infectious Disease Research at Wake Forest University School of Medicine"
+
+
+website:
+  title: "Title in Status Bar"
+  reader-mode: false
+  navbar:
+    pinned: true
+    background: primary
+    title: "Title in Navbar"
+    right:
+      - href: index.qmd
+        text: Index
+
+
+format:
+  html:
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    theme: [cosmo, assets/theme.scss]
+    include-after-body: assets/footer.html
+    include-in-header: assets/header.html
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+  cache: false

@@ -1,3 +1,12 @@
+# Changes in version 0.0.7
+
+ - Color updates to de-emphasize wake_gold (prioritizing black)
+ - Changing id default discrete color scales to brighter colors from wake secondary palette
+ - css updates for Quarto dashboard support
+ - `idreport` extension is now simply the `id` extension and includes a Quarto dashboard output with template
+   - Note: since extension is installed in each project, there should be no back compatibility issues
+ 
+
 # Changes in version 0.0.6
 
 ## New Features

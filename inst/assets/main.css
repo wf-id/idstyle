@@ -34,6 +34,66 @@
   color: #FFFFFF;
 }
 
+.quarto-dashboard .nav-tabs .nav-link:hover:not(.active) {
+  border: 0;
+  color: #FDC314;
+}
+
+.quarto-dashboard .nav-tabs .nav-link:not(.active) {
+  border: 0;
+  color: inherit;
+}
+
+.quarto-dashboard .sidebar {
+  padding-left: 5px;
+  background-color: #f3f0e9;
+  border-right: 0;
+}
+
+.quarto-dashboard .dashboard-page {
+  margin-bottom: 35px;
+}
+
+.value-box-showcase.html-fill-item.html-fill-container {
+  overflow: unset;
+}
+
+.html-fill-item.html-fill-container.value-box-grid {
+  overflow: hidden;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-primary {
+  background-color: #8C6D2C !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-secondary {
+  background-color: #54565A !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-success {
+  background-color: #6BA539 !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-info {
+  background-color: #008C95 !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-warning {
+  background-color: #FDC314 !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-danger {
+  background-color: #861F41 !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-light {
+  background-color: #f5f5f5 !important;
+}
+
+.quarto-dashboard .card.valuebox.bslib-card.bg-dark {
+  background-color: #000000 !important;
+}
+
 /*
 .nav-pills .nav-link.active:hover{
   background-color: $primarydark;
@@ -55,9 +115,17 @@
   accent-color: #8C6D2C;
 }
 
+.navbar-dark {
+  background-color: #000000;
+}
+
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  text-decoration: underline;
-  color: #FFFFFF;
+  text-decoration: none;
+  color: #cc9f2e;
+}
+
+.navbar .navbar-logo {
+  height: 30px;
 }
 
 .dropdown-item:hover {
@@ -74,6 +142,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 h1 {
   font-family: "Nunito Sans", Arial, sans-serif;
   font-weight: 400;
+  color: #000000;
 }
 
 h2 {
@@ -137,7 +206,7 @@ span.navbar-title {
   color: #FFFFFF;
   font-size: 0.75em;
   font-weight: 200;
-  z-index: 999;
+  z-index: 9999;
   border-top: 1px solid #8C6D2C;
 }
 
@@ -149,17 +218,113 @@ span.navbar-title {
   opacity: 1;
 }
 
+.dash-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000;
+  color: #FFFFFF;
+  text-align: center;
+  height: 45px;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: block;
+}
+
+.dash-footer a:hover, .dash-footer a:focus {
+  color: #cc9f2e;
+  text-decoration: none;
+}
+
+.dash-footer a {
+  color: #FFFFFF;
+}
+
+.foot-left, .foot-right {
+  width: 20%;
+  float: left;
+  display: block;
+  padding-top: 3px;
+}
+
+.foot-center {
+  width: 60%;
+  float: left;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .quarto-dashboard .dashboard-page {
+    margin-bottom: 0;
+  }
+  .bslib-page-fill {
+    gap: 0;
+  }
+  .dash-footer {
+    position: inherit;
+    height: fit-content;
+    display: table;
+    max-height: 100px;
+  }
+  .foot-center {
+    width: 100%;
+    display: table-header-group;
+    float: none;
+  }
+  .foot-left, .foot-right {
+    width: 100%;
+    display: table-footer-group;
+    text-align: center;
+    padding-top: 0;
+  }
+}
+
 .basic-header {
   text-align: center;
   padding: 15px;
   padding-right: 30px;
-  background-color: #8C6D2C;
+  background-color: #000000;
   color: #FFFFFF;
   font-size: 1em;
   font-weight: 200;
-  z-index: 999;
+  z-index: 9999;
   top: 0;
-  position: sticky;
+  width: 100%;
+}
+
+/*
+div#quarto-margin-sidebar:before {
+    font-family: "FontAwesome";
+    content: "\e064";
+    display: inline-flex;
+    position: absolute;
+}
+
+nav#TOC:before {
+    content: "I D E A S";
+    font-weight: bold;
+    display: inline-flex;
+    padding-left: 25px;
+}
+*/
+#toc-title {
+  text-transform: uppercase;
+  font-family: 'Cormorant';
+  font-weight: 900;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+#toc-title::before {
+  font-family: "FontAwesome";
+  content: "\e064";
+  display: inline-flex;
+  padding-right: 5px;
+  color: black;
+  font-size: smaller;
 }
 
 .basic-header a {
@@ -168,4 +333,96 @@ span.navbar-title {
 
 .modal-content {
   font-family: "Nunito Sans", Arial, sans-serif;
+}
+
+/*
+//for extra header to work
+header#quarto-header, div#quarto-content {
+    padding-top: 80px;
+}
+*/
+tr:nth-child(even) {
+  background-color: rgba(140, 109, 44, 0.1);
+}
+
+th {
+  color: #FFFFFF !important;
+  background-color: #000000 !important;
+}
+
+/* The Modal (background) */
+.mymodal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.mymodal-content {
+  background-color: #FFFFFF;
+  color: #000000;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  min-width: 300px;
+}
+
+.mymodal-content a {
+  color: #8C6D2C;
+}
+
+.mymodal-content a:hover, .mymodel-content a:active {
+  text-decoration: underline;
+  color: #8C6D2C;
+}
+
+/* The Close Button */
+.mymodalclose {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.mymodalclose:hover,
+.mymodalclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* temporary fixes for quarto dashboard */
+/* maybe can remove with new updates? */
+.sidebar {
+  padding: 10px;
+}
+
+.callout-header {
+  flex-direction: row;
+}
+
+.callout-icon-container {
+  max-width: 20px;
+}
+
+.callout-title-container {
+  padding-top: 1px;
 }

@@ -4,7 +4,13 @@
 \alias{make_project}
 \title{Make an Analysis Project}
 \usage{
-make_project(path = here::here(), report = TRUE, website = FALSE, book = FALSE)
+make_project(
+  path = here::here(),
+  report = TRUE,
+  website = FALSE,
+  book = FALSE,
+  dashboard = FALSE
+)
 }
 \arguments{
 \item{path}{Path automatically set by id_project.dcf (see
@@ -15,6 +21,8 @@ make_project(path = here::here(), report = TRUE, website = FALSE, book = FALSE)
 \item{website}{default: \code{FALSE}, whether to create a quarto website}
 
 \item{book}{default: \code{FALSE}, whether to create a quarto book}
+
+\item{dashboard}{default: \code{FALSE}, whether to create a quarto dashboard}
 }
 \value{
 Returns nothing.  See description above.

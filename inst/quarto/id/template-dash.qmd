@@ -1,0 +1,210 @@
+---
+title: I D E A S
+date: last-modified
+date-format: "[Updated:] D MMM, YYYY"
+format:
+  id-dashboard: default
+---
+
+
+```{r setup, include=FALSE}
+# knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+
+#TODO: add examples from font-play (themes, palettes, fontawesome) to README
+#TODO: update NEWS, version bump
+
+
+library(tidyverse)
+library(data.table)
+library(gtsummary)
+library(cowplot)
+library(flextable)
+library(patchwork)
+library(idstyle)
+library(idtools)
+library(showtext)
+
+knitr::opts_chunk$set(fig.width=6, fig.height=3.5, out.width = '100%',
+                      fig.showtext = TRUE)
+
+# Get Tables
+# tab_use <- pull_tables()
+
+# Get Figures
+# fig_use <- pull_figures()
+```
+
+
+<!--  h1 titles go in the navbar -->
+# Methods {orientation="rows"}
+
+
+<!--  h2 titles ignored (used for column/row identification) -->
+## Row
+
+```{r}
+#| component: valuebox
+#| title: "Success"
+list(
+  icon = "prescription",
+  color = "success",
+  value = scales::comma(1256)
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Warning"
+list(
+  icon = "virus2",  # https://icons.getbootstrap.com/
+  color = "warning",
+  value = 15
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Danger"
+list(
+  icon = "lungs-fill",
+  color = "danger",
+  value = scales::percent(0.85)
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Light"
+list(
+  icon = "clipboard2-pulse-fill",
+  color = "light",
+  value = scales::percent(0.85)
+)
+```
+
+
+## Row
+
+```{r}
+#| component: valuebox
+#| title: "Info"
+list(
+  icon = "prescription",
+  color = "info",
+  value = scales::comma(1256)
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Primary"
+list(
+  icon = "virus2",  # https://icons.getbootstrap.com/
+  color = "primary",
+  value = 15
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Secondary"
+list(
+  icon = "lungs-fill",
+  color = "secondary",
+  value = scales::percent(0.85)
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Dark"
+list(
+  icon = "clipboard2-pulse-fill",
+  color = "dark",
+  value = scales::percent(0.85)
+)
+```
+
+
+## Row 
+    
+```{r}
+#| title: Here is a flextable
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(idstyle))
+head(mtcars) |> format_flex_table() 
+```
+   
+   
+```{r}
+#| title: Here it is with wake gold
+head(mtcars) |> format_flex_table(color = 'wake') 
+```  
+
+
+# Discussion {orientation="rows"}
+
+## Row
+
+### Column
+
+```{r}
+#| title: Default palette
+#| padding: 0px
+ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
+```
+
+
+### Column {.tabset}
+
+```{r}
+#| title: ggplot
+#| padding: 0px
+gg2 <- mtcars |> ggplot(aes(x = mpg, y = hp, color = cut(mtcars$hp,6))) + #discrete scale
+  geom_point() + labs(title = 'This is a title for my graph',
+                      subtitle = 'This is a subtitle for my graph',
+                      caption = 'This is a caption for my graph',
+                      color = 'HP')
+gg2
+```
+
+
+```{r}
+#| title: plotly
+#| padding: 0px
+
+plotly::ggplotly(gg2)
+
+```
+
+## Row 
+
+
+```{r}
+#| title: grids
+#| padding: 0px
+gg2 + theme_id(grid = 'both') +
+  labs(title = 'Now with grids!')
+```
+
+
+```{r}
+#| title: facets
+#| padding: 0px
+gg2 + facet_wrap(~gear) + theme_id_facet(grid = 'y') +
+  labs(title = 'Some facets! And y grids only')
+```
+
+
+
+# References
+
+## {.sidebar} 
+<!-- Use level 1 (# {.sidebar}) for a global side bar, level 2 for just this page -->
+
+Here is a sidebar.
+
+## Row
+
+You can also add in some text, and it will automatically be added to a card.

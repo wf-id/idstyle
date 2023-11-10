@@ -9,7 +9,7 @@ format_flex_table(
   width_perc = 80,
   body_font = 10,
   header_font = 10,
-  color = c("none", "wake", "atrium")
+  color = c("none", "id", "wake", "atrium")
 )
 }
 \arguments{

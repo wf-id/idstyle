@@ -1,0 +1,53 @@
+
+<div class="dash-footer">
+
+    <div class="foot-left"><a href ="https://id.wakehealth.edu">Home</a></div>
+
+<div class="foot-center"><span class="san-serif" style="font-size: 1em;margin-top: -5px;display: inline-block;"><i class="fa-solid fa-head-side-virus" aria-label="head-side-virus"></i><span style="font-weight: 600;">&nbsp;&nbsp;I&nbsp;D&nbsp;E&nbsp;A&nbsp;S</span></span> <br> <span class="serif" style="font-size: 0.7em;margin-top: -8px;display: block;"><span style="font-weight: 700;">I</span>nfectious <span style="font-weight: 700;">D</span>isease <span style="font-weight: 700;">E</span>pidemiology & <span style="font-weight: 700;">A</span>pplied <span style="font-weight: 700;">S</span>tatistics</span></div>
+
+    <div class="foot-right"><a href="#" id="myModalLink">Disclaimer</a></div>
+
+<!-- The Modal -->
+<div id="myModal" class="mymodal">
+
+  <!-- Modal content -->
+  <div class="mymodal-content serif" style="font-weight:600;">
+    <span class="mymodalclose">&times;</span>
+<p><b>Disclaimer</b>: The information on this page is for general informational purposes only and SHOULD NOT be relied upon as a substitute for sound professional medical advice, evaluation or care from your physician or other qualified health care provider.</p>
+<p>Please note that this page is not an official page of <a href="https://www.wakehealth.edu/">Atrium Wake Forest Baptist Health</a> or <a href="https://school.wakehealth.edu/">Wake Forest University School of Medicine</a>.</p>
+<p>This page has been provided by the <a href="https://wakeforestid.com/groups/ideas.html">Infectious Disease Epidemiology and Applied Statistics</a> (IDEAS) group within the <a href="https://school.wakehealth.edu/departments/internal-medicine/infectious-diseases">Wake Forest University School of Medicine Section on Infectious Diseases</a>.</p>
+  </div>
+
+</div>
+
+  </div>
+
+
+
+<script>
+// Get the modal
+var mymodal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var modalbtn = document.getElementById("myModalLink");
+
+// Get the <span> element that closes the modal
+var modalspan = document.getElementsByClassName("mymodalclose")[0];
+
+// When the user clicks the button, open the modal
+modalbtn.onclick = function() {
+  mymodal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+modalspan.onclick = function() {
+  mymodal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == mymodal) {
+    mymodal.style.display = "none";
+  }
+}
+</script>

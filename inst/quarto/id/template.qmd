@@ -5,18 +5,14 @@ author: First Last
 date: last-modified
 date-format: "[Updated:] D MMM, YYYY"
 format:
-  idreport-html: default
-  idreport-pdf: default
-  idreport-docx: default
+  id-html: default
+  id-pdf: default
+  id-docx: default
 ---
 
 
 ```{r setup, include=FALSE}
 # knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
-
-
-#TODO: add examples from font-play (themes, palettes, fontawesome) to README
-#TODO: update NEWS, version bump
 
 
 library(tidyverse)
@@ -61,8 +57,7 @@ Flextable formatting:
  - Black & white (default)
 
 ```{r}
-suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(idstyle))
+
 head(mtcars) |> format_flex_table() 
 ```
 
@@ -75,14 +70,7 @@ head(mtcars) |> format_flex_table(color = 'wake')
 ### Plots
 
 
- - Points with wake gold default
- 
-```{r}
-ggplot(mtcars, aes(x = mpg, y = hp)) +
-  geom_point(aes(color = carb))
-```
-
- - Wake color palette for factors
+ - ID color palette for factors
 
 ```{r}
 ggplot(mtcars) + geom_bar(aes(x = carb, fill = factor(carb)))
@@ -102,14 +90,14 @@ gg2
  - Grids
  
 ```{r}
-gg2 + theme_wake(grid = 'both') +
+gg2 + theme_id(grid = 'both') +
   labs(title = 'Now with grids!')
 ```
 
  - Facets
 
 ```{r}
-gg2 + facet_wrap(~gear) + theme_wake_facet(grid = 'y') +
+gg2 + facet_wrap(~gear) + theme_id_facet(grid = 'y') +
   labs(title = 'Some facets! And y grids only')
 
 ```

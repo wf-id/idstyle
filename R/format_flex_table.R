@@ -14,16 +14,17 @@
 
 format_flex_table <- function(ft, width_perc = 80,
                               body_font = 10, header_font = 10,
-                              color = c('none', 'wake', 'atrium')){
+                              color = c('none', 'id', 'wake', 'atrium')){
 
   color <- match.arg(color)
 
   # stopifnot(class(ft)=="flextable")
   if(inherits(ft, 'gtsummary')) ft <- gtsummary::as_flex_table(ft)
-  if(!inherits(ft,"flextable")) ft <- flextable::as_flextable(ft, show_coltype = FALSE)
+  if(!inherits(ft,"flextable")) ft <- flextable::as_flextable(ft, show_coltype = FALSE,max_row=100) # if you need more then 100 rows, you should probably chose a different output. (previous default 10 too low)
 
   stopifnot((width_perc < 101 && width_perc > 0) | is.null(width_perc))
   stopifnot(body_font>2 && body_font < 100)
+  stopifnot(header_font>2 && header_font < 100)
 
 
   if(!is.null(width_perc)){
@@ -37,6 +38,7 @@ format_flex_table <- function(ft, width_perc = 80,
   }
 
     ft <- flextable::fontsize(ft, part = "body", size = body_font) |>
+      flextable::fontsize(part = 'header', size = header_font) |>
       flextable::fontsize(part = "footer", size = body_font*0.9)
 
     if(color=='wake'){
@@ -48,6 +50,14 @@ format_flex_table <- function(ft, width_perc = 80,
 
     if(color=='atrium'){
       ft <- flextable::theme_zebra(ft, odd_header = atrium_teal, even_header = atrium_tealshadow) |>
+        flextable::color(color = 'white', part = 'header') |>
+        flextable::color(color = 'white', part = 'footer') |>
+        flextable::bold(bold = FALSE, part = 'footer')
+    }
+
+    if(color=='id'){
+      ft <- flextable::theme_zebra(ft, even_header = wake_all_colors$wakenavy,
+                                   odd_header = 'black') |>
         flextable::color(color = 'white', part = 'header') |>
         flextable::color(color = 'white', part = 'footer') |>
         flextable::bold(bold = FALSE, part = 'footer')

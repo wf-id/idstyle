@@ -8,6 +8,7 @@
 #' @param report default: `TRUE`, whether to include a `.qmd` report for a html, pdf, or docx report
 #' @param website default: `FALSE`, whether to create a quarto website
 #' @param book default: `FALSE`, whether to create a quarto book
+#' @param dashboard default: `FALSE`, whether to create a quarto dashboard
 #'
 #' @details Behind the scenes, this function used by id_project.dcf when
 #' a user selects New project... > New Directory > ID Research Project Template
@@ -29,7 +30,8 @@ make_project <- function(
     path = here::here(),
     report = TRUE,
     website = FALSE,
-    book = FALSE
+    book = FALSE,
+    dashboard = FALSE
 ) {
 
   project_name <- basename(path)
@@ -70,13 +72,13 @@ make_project <- function(
 
     if (report) {
       dir.create(file.path(path,'report'), recursive = TRUE, showWarnings = FALSE)
-      report_file <- system.file('quarto', 'idreport', 'template.qmd',
+      report_file <- system.file('quarto', 'id', 'template.qmd',
                                  package = 'idstyle')
-      quartoext_path <- system.file('quarto', 'idreport', '_extensions',
+      quartoext_path <- system.file('quarto', 'id', '_extensions',
                                     package = 'idstyle')
-      file.copy(report_file, file.path(path, "report", "report.qmd"),
+      file.copy(report_file, file.path(path, "report", "index.qmd"),
                 overwrite = FALSE)
-      cli::cli_alert_success('report.qmd created')
+      cli::cli_alert_success('report/index.qmd created')
 
       report_build_glue <- system.file('quarto', 'build-template-report.R',
                                        package = 'idstyle')
@@ -86,6 +88,27 @@ make_project <- function(
                                                           glue_open = '{{',
                                                           glue_close = '}}')
                                )
+
+    }
+
+    if (dashboard) {
+      dir.create(file.path(path,'dashboard'), recursive = TRUE, showWarnings = FALSE)
+      dash_file <- system.file('quarto', 'id', 'template-dash.qmd',
+                                 package = 'idstyle')
+      quartoext_path <- system.file('quarto', 'id', '_extensions',
+                                    package = 'idstyle')
+      file.copy(dash_file, file.path(path, "dashboard", "index.qmd"),
+                overwrite = FALSE)
+      cli::cli_alert_success('dashboard/index.qmd created')
+
+      dash_build_glue <- system.file('quarto', 'build-template-dash.R',
+                                       package = 'idstyle')
+
+      build_template <- paste0(build_template,'\n\n\n',
+                               idtools::generate_template(dash_build_glue,
+                                                          glue_open = '{{',
+                                                          glue_close = '}}')
+      )
 
     }
 
@@ -110,7 +133,21 @@ make_project <- function(
   #quarto website/book
   if(website){
     res <- system2('quarto', paste0('create project website website'))
-    #TODO: overwrite _quarto.yml, add styles
+
+    #basic web structure
+    web_files <- list.files(system.file('quarto', 'web-assets',
+                                        package = 'idstyle'),full.names = TRUE)
+    purrr::walk(web_files,
+                \(x)file.copy(x, file.path("website", basename(x)), overwrite = TRUE))
+
+    #web assets
+    dir.create(file.path('website', 'assets'),recursive = TRUE, showWarnings = FALSE)
+    web_assets <- list.files(system.file('quarto', 'id','_extensions','id',
+                               package = 'idstyle'),
+                             pattern = '(html|scss|ico)$',
+                             recursive = TRUE, full.names = TRUE)
+    purrr::walk(web_assets,
+                \(x)file.copy(x, file.path("website", "assets", basename(x)), overwrite = TRUE))
 
     website_build_glue <- system.file('quarto', 'build-template-website.R',
                                      package = 'idstyle')
@@ -151,19 +188,36 @@ make_project <- function(
     cli::cli_alert_success('build script created')
 
 
-  #quarto extensions for idreport
+  #quarto extensions for id
   if(report){
+    path_dir <- getwd()
     setwd(file.path('report'))
 
     res <- system2('quarto', paste0('add "',
-                                    normalizePath(file.path(system.file('quarto', 'idreport',
+                                    normalizePath(file.path(system.file('quarto', 'id',
                                                           package = 'idstyle'))),
                                     '" --no-prompt'))
 
     if(length(attr(res, 'status'))==0){
       cli::cli_alert_success('quarto report extensions added')
     } else cli::cli_alert_danger('quarto report extensions not added')
+    setwd(path_dir)
   }
+
+    if(dashboard){
+      path_dir <- getwd()
+      setwd(file.path('dashboard'))
+
+      res <- system2('quarto', paste0('add "',
+                                      normalizePath(file.path(system.file('quarto', 'id',
+                                                                          package = 'idstyle'))),
+                                      '" --no-prompt'))
+
+      if(length(attr(res, 'status'))==0){
+        cli::cli_alert_success('quarto dashboard extensions added')
+      } else cli::cli_alert_danger('quarto dashboard extensions not added')
+      setwd(path_dir)
+    }
 
 
 }

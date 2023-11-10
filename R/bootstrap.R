@@ -13,9 +13,9 @@ id_bs_theme <- function(font_scale = 0.85){
                   #colors
                   bg = wake_all_colors$white,
                   fg = wake_all_colors$black,
-                  default = wake_all_colors$black,
-                  primary = wake_all_colors$primary,
-                  secondary = wake_all_colors$wakegray,
+                  default = wake_all_colors$wakegray,
+                  primary = wake_all_colors$black,
+                  secondary = wake_all_colors$primary,
                   success = wake_all_colors$wakegreen,
                   info = wake_all_colors$atriumteal,
                   warning = wake_all_colors$wakeyellow,
