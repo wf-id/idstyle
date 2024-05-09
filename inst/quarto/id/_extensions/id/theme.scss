@@ -54,7 +54,8 @@ $body-bg: $white;
 $body-color: $wakegray;
 $link-color: $primary;
 $sidebar-hl: $primary;
-$sidebar-bg: $primary10;
+$sidebar-fg: $black;
+$sidebar-bg: $primary10fixed;
 $toc-color: $primary;
 $footer-bg: $black;
 $footer-fg: $white;
@@ -141,6 +142,10 @@ $spacer: 0.5rem;
   background-color: $black;
   color: $white;
 //  border: 2px solid $white;
+}
+
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code, div.sidebar-item-container:hover, div.sidebar-item-container:focus, .quarto-secondary-nav nav.quarto-page-breadcrumbs a:hover {
+    color: $primary;
 }
 
 .quarto-dashboard .nav-tabs .nav-link:hover:not(.active) {
@@ -477,7 +482,7 @@ th {
 .mymodal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 9999; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
