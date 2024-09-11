@@ -227,7 +227,7 @@ scale_fill_continuous_wake <- function(...) {
 #' Wake Discrete Scale Function
 #' @export
 #'
-scale_discrete_wake <- list(
+scale_discrete_wake2 <- list(
 
   # gold, black, yellow for n <= 3
   # c(wake_gold, 'black', wake_all_colors$wakeyellow),
@@ -246,6 +246,28 @@ scale_discrete_wake <- list(
 )
 
 
+#' Wake Discrete Scale Function, starting with brights
+#' @export
+#'
+scale_discrete_wake <- list(
+
+
+  c(wake_all_colors$waketeal,
+    wake_yellow,
+    wake_all_colors$wakered,
+
+    wake_all_colors$wakenavy,
+
+    wake_all_colors$wakegreen,
+
+    wake_gray,
+    wake_all_colors$wakecoolgray,
+    'black',
+    wake_gold)
+
+)
+
+
 #' ID Discrete Scale Function
 #' @export
 #'
@@ -253,7 +275,7 @@ scale_discrete_id <- list(
 
   #unname(grDevices::palette.colors(n = 9, palette = 'okabe'))
   #decided on fresher colors than okabe that are also easier to see on white
-  c(unlist(scale_discrete_wake)[3:8], '#D55E00','#56B4E9', 'black')
+  c(unlist(scale_discrete_wake)[1:6], '#D55E00','#56B4E9', 'black')
 
 )
 
@@ -292,7 +314,7 @@ scale_fill_continuous_atrium <- function(...) {
 #' Atrium Discrete Scale Function
 #' @export
 #'
-scale_discrete_atrium <- list(
+scale_discrete_atrium2 <- list(
 
   c(atrium_teal, 'black', wake_all_colors$atriumdarkgray),
 
@@ -313,5 +335,25 @@ scale_discrete_atrium <- list(
     # "#56B4E9"
 
   )
+
+)
+
+
+
+#' Atrium Discrete Scale Function, starting with brights
+#' @export
+#'
+scale_discrete_atrium <- list(
+
+  c(
+        wake_all_colors$atriumblue,
+        wake_all_colors$atriumyellow,
+        wake_all_colors$atriumred,
+        wake_all_colors$atriumgreen,
+        wake_all_colors$atriumorange,
+        wake_all_colors$atriumteal,
+        'black',
+        atrium_darkgray
+        )
 
 )
