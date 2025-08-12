@@ -20,7 +20,7 @@ format_flex_table <- function(ft, width_perc = 80,
 
   # stopifnot(class(ft)=="flextable")
   if(inherits(ft, 'gtsummary')) ft <- gtsummary::as_flex_table(ft)
-  if(!inherits(ft,"flextable")) ft <- flextable::as_flextable(ft, show_coltype = FALSE,max_row=100) # if you need more then 100 rows, you should probably chose a different output. (previous default 10 too low)
+  if(!inherits(ft,"flextable")) ft <- flextable::flextable(ft)
 
   stopifnot((width_perc < 101 && width_perc > 0) | is.null(width_perc))
   stopifnot(body_font>2 && body_font < 100)

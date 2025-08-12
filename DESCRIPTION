@@ -1,6 +1,6 @@
 Package: idstyle
 Title: Providing Templates, Branding, and Style Tools for ID Research Presentation
-Version: 0.0.8
+Version: 0.0.9
 Authors@R: 
     c(person("Michael", "DeWitt", , "medewitt@wakehealth.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8940-1967")),

@@ -1,4 +1,7 @@
 # Changes in version 0.0.8
+- bug fix: flextable
+
+# Changes in version 0.0.8
  - Discrete palette updates: all start with better alternating brights, with primary brand colors added to the end for large palettes only
 
 # Changes in version 0.0.7
