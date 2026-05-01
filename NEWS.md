@@ -1,4 +1,7 @@
-# Changes in version 0.0.8
+# Changes in version 0.0.9.0001
+- enhancement: allows for offline loading/building of package (will not load Google fonts if offline; prints error but continues.)
+
+# Changes in version 0.0.9
 - bug fix: flextable
 
 # Changes in version 0.0.8

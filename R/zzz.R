@@ -2,8 +2,8 @@
 
 
   # load Google fonts
-  sysfonts::font_add_google('Cormorant')
-  sysfonts::font_add_google('Nunito Sans')
+  try(sysfonts::font_add_google('Cormorant'))
+  try(sysfonts::font_add_google('Nunito Sans'))
 
 
   # set gtsummary theme
@@ -32,7 +32,7 @@
 
   msg <- paste0(header,
                 '\n', chk,
-               ' Nunito Sans & Cormorant google fonts loaded with package `sysfonts`',
+               ' Nunito Sans & Cormorant google fonts loaded with package `sysfonts` (if online)',
 
                '\n\n', chk,
                ' gtsummary journal jama theme set',
